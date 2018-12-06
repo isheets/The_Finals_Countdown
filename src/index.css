@@ -55,6 +55,8 @@ ul {
 	padding: 15px;
 	width: 80%;
 	margin: auto;
+	margin-bottom: 15px;
+	position: relative;
 }
 
 .classGrid {
@@ -80,6 +82,36 @@ ul {
 	width: 25%;
 	grid-row-gap: 10px;
 	margin: auto;
+}
+
+.todoTitle {
+	display: inline-block;
+}
+.deleteIcon {
+	display: inline-block;
+	height: 5%;
+	width: 5%;
+	margin: 0;
+	cursor:pointer;
+}
+
+.deleteIcon:hover {
+	height: 6%;
+	width: 6%;
+}
+
+.deleteClass {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	height: 6%;
+	width: 6%;
+	cursor: pointer;
+}
+
+.deleteClass:hover {
+	height: 7%;
+	width: 7%;
 }
 
 
