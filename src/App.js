@@ -18,7 +18,7 @@ import ClassItem from './ClassItem'
   var db = firebase.database(app);
   var base = Rebase.createClass(db);
 
-  var date1 = new Date(2018, 11, 5, 18, 10, 20, 0);
+  var date1 = new Date(2018, 11, 7, 18, 10, 20, 0);
   var date2 = new Date(2018, 11, 17, 11, 30, 0, 0)
 
   class App extends Component {
@@ -65,7 +65,8 @@ import ClassItem from './ClassItem'
   				}
   				]
   			}
-  			]
+  			],
+  			show: false
   		};
 
   		this.addTodo = this.addTodo.bind(this);
@@ -73,11 +74,11 @@ import ClassItem from './ClassItem'
   		this.deleteTodo = this.deleteTodo.bind(this);
   		this.deleteClass = this.deleteClass.bind(this);
   		this.addClass = this.addClass.bind(this);
+  		this.showHide = this.showHide.bind(this);
 
   	}
 
-  	addClass(e,textInput,classInput) {
-  		e.preventDefault();
+  	addClass(textInput,classInput) {
   		
   		var classesCopy = this.state.classes;
 
@@ -285,14 +286,29 @@ import ClassItem from './ClassItem'
 
   }
 
+showHide(e)
+{
+	    this.setState({
+      show: !this.state.show
+    });
+}
+
+
 
 
   render() {
   	return (
   		<div className="wrapper">
   		<h1 className="title">The Finals Countdown</h1>
-  		<NewClassForm 
-  		onButtonClick={this.addClass}/>
+  		<button onClick = {this.showHide}>Add Class</button>
+  		 {
+          this.state.show
+            ?  <NewClassForm 
+  		onButtonClick={this.addClass}
+  		onClick={this.showHide}/>
+            : null
+        }
+
   		<ClassItem 
   		classes={this.state.classes}
   		todoFunc={this.addTodo}
