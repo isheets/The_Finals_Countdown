@@ -1,17 +1,64 @@
+*,
+*: before,
+*:after{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@keyframes bgcolor {
+    0% {
+        background-color: #e7eaf1;
+    }
+
+    30% {
+        background-color: #d5e2e9;
+    }
+
+    60% {
+        background-color: #b3cdce;
+    }
+
+    90% {
+        background-color: #9cd0ce;
+    }
+
+    100% {
+        background-color: #a7ece9;
+    }
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+/*    -webkit-animation: bgcolor 30s infinite;
+    animation: bgcolor 25s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;*/
+    background-color:#b3cdce; 
+
+  	margin: 0;
+ 	padding: 0;
+  	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+		
+} 
+
+.title {
+	grid-area: title;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	margin: 0;
+	padding-top: 3%;
+	padding-bottom: 2%;
+	font-size:300%;
 }
 
 li > * {
 	display: inline-block;
 	padding-right: 5px;
-	margin: 8px;
+	margin-top:8px;
 
 }
 
@@ -19,43 +66,72 @@ ul {
 	display: inline-block;
 	list-style: none;
 	padding: 0;
+	margin:0;
 }
 
 .wrapper {
 	width: 75%;
 	margin: auto;
-	background: #3D5467;
 	padding: 20px;
+	 display:grid;
+		grid-template-columns: 1fr ;
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+		"title title"
+		"Nav Nav"
+		"body body";
+}
+.classItem {
+	grid-area: body;
+	background: #9b9b9b;
+	border:.5px;
+	border-radius: 4px;
+	padding: 15px;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 15px;
+	margin-top:1%;
+	position: relative;
+	padding-right: 3%;
 }
 
-.title {
-	text-align: center;
-	color: white;
-	padding: 10px;
-	margin: 0;
+.addClassButton{
+	grid-area: Nav;
+	max-height: 30px;
+	width:20%;
+	margin-top: 10px;
+	font-size:110%;
+	margin-left: 40%;
+	margin-bottom: 2%;
+	border-radius: 8px;
 }
 
+#ClassName{
+	margin-top: 0px;
+}
 .addClass, .addTodo {
 	display: block;
 }
 
 .todoList {
-	background: #8AA29E;
-	padding: 10px;
-
+	background: white;
+	border-radius: 4px;
+	padding-left: 30px;
+	padding-bottom: 30px;
 }
-
+#enterTodoItem{
+	margin-bottom: 3%;
+}
+#todoListTitle{
+	margin-bottom: 2%;
+}
 .timer {
-	background: #E5D4ED;
-	padding: 10px;
+	border-radius: 4px;
+	background: white;
+	padding-top: 10px;
+	padding-left: 35px;
 }
 
-.classItem {
-	background: #F1EDEE;
-	padding: 15px;
-	width: 80%;
-	margin: auto;
-}
 
 .classGrid {
 	display: grid;
@@ -64,22 +140,85 @@ ul {
 }
 
 .addClassForm {
-	background: #686963;
-	width: 50%;
+	width:45vw;
+	height: 40vh;
+	position:fixed;
+	top:20vh;
+	left:30vw;
+	z-index: 3;
+	background-color: white;
+	border:.5px #A2A4A3;
+	box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+	overflow-y: auto;
 	text-align: center;
-	margin: auto;
-	color: white;
-	margin-bottom: 20px;
-	padding: 10px;
+	padding-top: 5%;
+}
 
+.ExitAddClass{
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	height: 6%;
+	width: 6%;
+	cursor: pointer;
+	padding-right: 10px;
+}
+
+.ExitAddClass:hover {
+	height: 7%;
+	width: 7%;
 }
 
 .inputForm {
 	display: grid;
 	grid-template-rows: 25%;
-	width: 25%;
+	width: 40%;
 	grid-row-gap: 10px;
 	margin: auto;
+}
+#timeDate{
+	font-size: 100%;
+}
+
+#classNameEnter{
+	font-size: 120%;
+
+}
+.addClass{
+	font-size: 120%;
+}
+
+
+.todoTitle {
+	display: inline-block;
+}
+.deleteIcon {
+	display: inline-block;
+	height: 4%;
+	width: 4%;
+	margin: 0;
+	cursor:pointer;
+}
+
+.deleteIcon:hover {
+	height: 6%;
+	width: 6%;
+}
+
+.deleteClass {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	height: 5.5%;
+	width: 5.5%;
+	padding-right: 5px;
+	cursor: pointer;
+}
+
+.deleteClass:hover {
+	height: 6.5%;
+	width: 6.5%;
 }
 
 
