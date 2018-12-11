@@ -18,7 +18,6 @@ import ClassItem from './ClassItem'
   var db = firebase.database(app);
   var base = Rebase.createClass(db);
 
-  var date1 = new Date(2018, 11, 5, 18, 10, 20, 0);
   var date1 = new Date(2018, 11, 7, 18, 10, 20, 0);
   var date2 = new Date(2018, 11, 17, 11, 30, 0, 0)
 
@@ -117,9 +116,11 @@ import ClassItem from './ClassItem'
   		this.deleteTodo = this.deleteTodo.bind(this);
   		this.deleteClass = this.deleteClass.bind(this);
   		this.addClass = this.addClass.bind(this);
+  		this.showHide = this.showHide.bind(this);
 
   	}
 
+  	addClass(textInput,classInput) {
   		
   		var classesCopy = this.state.classes;
 
@@ -335,6 +336,15 @@ showHide(e)
   	return (
   		<div className="wrapper">
   		<h1 className="title">The Finals Countdown</h1>
+  		<button onClick = {this.showHide}>Add Class</button>
+  		 {
+          this.state.show
+            ?  <NewClassForm 
+  		onButtonClick={this.addClass}
+  		onClick={this.showHide}/>
+            : null
+        }
+
   		<ClassItem 
   		classes={this.state.classes}
   		todoFunc={this.addTodo}
