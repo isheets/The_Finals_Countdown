@@ -19,6 +19,7 @@ import ClassItem from './ClassItem'
   var base = Rebase.createClass(db);
 
   var date1 = new Date(2018, 11, 5, 18, 10, 20, 0);
+  var date1 = new Date(2018, 11, 7, 18, 10, 20, 0);
   var date2 = new Date(2018, 11, 17, 11, 30, 0, 0)
 
   class App extends Component {
@@ -27,6 +28,7 @@ import ClassItem from './ClassItem'
   		super(props);
   		this.state = {
   			classes: [
+<<<<<<< HEAD
   			// {
   			// 	className: "Test Class",
   			// 	dateOfTest: date1.getTime(),
@@ -66,6 +68,48 @@ import ClassItem from './ClassItem'
   			// 	]
   			// }
   			]
+=======
+  			{
+  				className: "Test Class",
+  				dateOfTest: date1.getTime(),
+  				countDownString: "",
+  				todos: [
+  				{
+  					name: "test todo",
+  					checked: false
+  				},
+  				{
+  					name: "test todo2",
+  					checked: false
+  				},
+  				{
+  					name: "test todo3",
+  					checked: false
+  				}
+  				]
+  			},
+  			{
+  				className: "Test Class2",
+  				dateOfTest: date2.getTime(),
+  				countDownString: "",
+  				todos: [
+  				{
+  					name: "test todo",
+  					checked: false
+  				},
+  				{
+  					name: "test todo2",
+  					checked: false
+  				},
+  				{
+  					name: "test todo3",
+  					checked: false
+  				}
+  				]
+  			}
+  			],
+  			show: false
+>>>>>>> 55dd96d7b85db781f5d48583f0724c0e99fe9cad
   		};
 
   		this.addTodo = this.addTodo.bind(this);
@@ -76,8 +120,6 @@ import ClassItem from './ClassItem'
 
   	}
 
-  	addClass(e,textInput,classInput) {
-  		e.preventDefault();
   		
   		var classesCopy = this.state.classes;
 
@@ -279,14 +321,20 @@ import ClassItem from './ClassItem'
 
   }
 
+showHide(e)
+{
+	    this.setState({
+      show: !this.state.show
+    });
+}
+
+
 
 
   render() {
   	return (
   		<div className="wrapper">
   		<h1 className="title">The Finals Countdown</h1>
-  		<NewClassForm 
-  		onButtonClick={this.addClass}/>
   		<ClassItem 
   		classes={this.state.classes}
   		todoFunc={this.addTodo}
