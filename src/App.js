@@ -27,44 +27,44 @@ import ClassItem from './ClassItem'
   		super(props);
   		this.state = {
   			classes: [
-  			{
-  				className: "Test Class",
-  				dateOfTest: date1.getTime(),
-  				countDownString: "",
-  				todos: [
-  				{
-  					name: "test todo",
-  					checked: false
-  				},
-  				{
-  					name: "test todo2",
-  					checked: false
-  				},
-  				{
-  					name: "test todo3",
-  					checked: false
-  				}
-  				]
-  			},
-  			{
-  				className: "Test Class2",
-  				dateOfTest: date2.getTime(),
-  				countDownString: "",
-  				todos: [
-  				{
-  					name: "test todo",
-  					checked: false
-  				},
-  				{
-  					name: "test todo2",
-  					checked: false
-  				},
-  				{
-  					name: "test todo3",
-  					checked: false
-  				}
-  				]
-  			}
+  			// {
+  			// 	className: "Test Class",
+  			// 	dateOfTest: date1.getTime(),
+  			// 	countDownString: "",
+  			// 	todos: [
+  			// 	{
+  			// 		name: "test todo",
+  			// 		checked: false
+  			// 	},
+  			// 	{
+  			// 		name: "test todo2",
+  			// 		checked: false
+  			// 	},
+  			// 	{
+  			// 		name: "test todo3",
+  			// 		checked: false
+  			// 	}
+  			// 	]
+  			// },
+  			// {
+  			// 	className: "Test Class2",
+  			// 	dateOfTest: date2.getTime(),
+  			// 	countDownString: "",
+  			// 	todos: [
+  			// 	{
+  			// 		name: "test todo",
+  			// 		checked: false
+  			// 	},
+  			// 	{
+  			// 		name: "test todo2",
+  			// 		checked: false
+  			// 	},
+  			// 	{
+  			// 		name: "test todo3",
+  			// 		checked: false
+  			// 	}
+  			// 	]
+  			// }
   			]
   		};
 
@@ -109,9 +109,9 @@ import ClassItem from './ClassItem'
   				classInput.value = '';
 
 
-  				// base.post('classes', {
-  				// 	data: this.state.classes
-  				// });
+  				base.post('classes', {
+  					data: this.state.classes
+  				});
   			}
   		}
 
@@ -123,22 +123,17 @@ import ClassItem from './ClassItem'
   		this.timerInterval = setInterval(this.timer.bind(this), 1000, true);
 
 
-  		// this.ref = base.syncState('classes', {
-  		// 	context: this,
-  		// 	state: 'classes'
-  		// });
+  		base.fetch('classes', {
+  			context: this,
+  			asArray: true,
+  			then(data) {
+  				console.log(data);
+  				this.setState ({
 
-  		// base.fetch('classes', {
-  		// 	context: this,
-  		// 	asArray: true,
-  		// 	then(data) {
-  		// 		console.log(data);
-  		// 		this.setState ({
-
-  		// 			classes: data
-  		// 		});
-  		// 	}
-  		// });
+  					classes: data
+  				});
+  			}
+  		});
   	}
 
   	componentWillUnmount(){
@@ -157,7 +152,6 @@ import ClassItem from './ClassItem'
   			var _day = _hour * 24;
 
   			var end = new Date(item.dateOfTest);
-  			console.log(end);
   			var now = new Date();
 
   			var distance = end - now;
