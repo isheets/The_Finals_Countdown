@@ -18,28 +18,26 @@ export default class TodoItem extends Component {
 		if(!todos || todos.length === 0) {
 			return(<h4>Add something todo</h4>);
 		}
-		else {
-			return (
-				<div>
-				{todos.map((item, index) =>
-					<li className="todoItem" key={index}>
-					<input 
-					type="checkbox" 
-					className="todoCheck" 
-					onChange={() => this.props.todoCheck(classIndex, index)}>
-					</input>
-					<p 
-					className="todoTitle"
-					style={todoStrike(item.checked)} >
-					{item.name}
-					</p>
-					<img src={deleteIcon} alt="Delete Todo" onClick={() => deleteTodo(classIndex, index)} className="deleteIcon"></img>
-					</li>
-					)}
-				</div>
-				);
-		}
-
-		
+		return (
+			<div>
+			{todos.map((item, index) =>
+				<li className="todoItem" key={index}>
+				<input 
+				type="checkbox" 
+				className="todoCheck" 
+				onChange={() => this.props.todoCheck(classIndex, index)}>
+				</input>
+				<p 
+				className="todoTitle"
+				style={todoStrike(item.checked)} >
+				{item.name}
+				</p>
+				<img src={deleteIcon} alt="Delete Todo" onClick={() => deleteTodo(classIndex, index)} className="deleteIcon"></img>
+				</li>
+				)}
+			</div>
+			);
 	}
+
+
 }

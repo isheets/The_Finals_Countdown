@@ -15,14 +15,14 @@ export default class TodoList extends Component {
 
 		function handleKeyPress(event) {
 			console.log("handle keypress called");
-			if(event.key == 'Enter'){
+			if(event.key === 'Enter'){
 				parseTodo(event);
 			}
 		}
 
 		return (
 			<div className="todoList">
-			<h3>Todo List</h3>
+			<h3 className="todoListTitle">Todo List</h3>
 			<ul>
 			<TodoItem 
 			todos = {todos}
@@ -32,14 +32,12 @@ export default class TodoList extends Component {
 			/>
 			</ul>
 			<div className="addTodoForm">
-			<input 
-			onKeyPress={this.handleKeyPress} 
-			type="text" 
-			ref={input => textInput=input}></input>
-			<button onClick={e => parseTodo(e)} className="addTodo">add todo item</button>
+			<input className="enterTodoItem" type="text" ref={input => textInput=input}></input>
+			<button onClick={e => parseTodo(e)} className="addTodo">add todo</button>
 			</div>
 			</div>	
 			);
+
 
 		//create the new todo item from user input and send it back to add todo via props
 		function parseTodo(e) {

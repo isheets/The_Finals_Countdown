@@ -1,17 +1,40 @@
+*,
+*:before,
+*:after{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    background-color:#b3cdce; 
+    margin: 0;
+    padding: 0;
+    font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+} 
+
+.title {
+	grid-area: title;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	margin: 0;
+	padding-top: 3%;
+	padding-bottom: 2%;
+	font-size:300%;
+
+
 }
 
 li > * {
 	display: inline-block;
 	padding-right: 5px;
-	margin: 8px;
+	margin-top:8px;
 
 }
 
@@ -19,44 +42,113 @@ ul {
 	display: inline-block;
 	list-style: none;
 	padding: 0;
+	margin:0;
 }
 
 .wrapper {
 	width: 75%;
 	margin: auto;
-	background: #3D5467;
 	padding: 20px;
+	display:grid;
+	grid-template-columns: 1fr ;
+	grid-template-rows: auto auto auto;
+	grid-template-areas:
+	"title title"
+	"Nav Nav"
+	"body body";
+}
+.classItem {
+	grid-area: body;
+	background: #9b9b9b;
+	border:.5px;
+	border-radius: 4px;
+	padding: 15px;
+	width: 60%;
+	margin: auto;
+	margin-bottom: 15px;
+	margin-top:1%;
+	position: relative;
+	padding-right: 3%;
 }
 
-.title {
-	text-align: center;
+.addClassButton{
+	grid-area: Nav;
+	max-height: 30px;
+	width:20%;
+	margin-top: 10px;
+	font-size:110%;
+	margin-left: 40%;
+	margin-bottom: 2%;
+	border-radius: 8px;
+}
+
+.ClassName{
+	margin-top: 0px;
 	color: white;
-	padding: 10px;
-	margin: 0;
+	text-align: center;
+	font-size: 200%;
+	margin-bottom: 15px;
+	border-bottom: 2px solid white;
 }
-
-.addClass, .addTodo {
+.addClass{
 	display: block;
 }
 
-.todoList {
-	background: #8AA29E;
-	padding: 10px;
+.addTodo {
+	display: inline-block;
+	margin-left: 5px;
+}
 
+.todoList {
+	background: white;
+	border-radius: 4px;
+	padding: 10px;
+}
+.enterTodoItem{
+	display: inline-block;
+}
+.addTodoForm {
+	margin-top: 10px;
+}
+
+textarea, input {
+	border-radius: 2px;
+	border: 2px solid #9b9b9b;
+	padding: 5px;
+}
+
+textarea:focus, input:focus{
+	border: 2px solid #b3cdce;
+	border-radius: 2px;
+	outline: none;
+
+}
+.todoListTitle{
+	margin: 0;
+	padding-bottom: 5px;
+	margin-bottom: 2%;
+	text-align: center;
+	border-bottom: 1px solid;
 }
 
 .timer {
-	background: #E5D4ED;
+	background: white;
+	border-radius: 4px;
 	padding: 10px;
 }
 
-.classItem {
-	background: #F1EDEE;
-	padding: 15px;
-	width: 80%;
-	margin: auto;
-	margin-bottom: 15px;
-	position: relative;
+.timerTitle {
+	padding-bottom: 5px;
+	margin: 0;
+	margin-bottom: 2%;
+	text-align: center;
+	border-bottom: 1px solid;
+
+}
+
+.countdown {
+	text-align: center;
+	color: #AF1B3F;
 }
 
 .classGrid {
@@ -66,52 +158,95 @@ ul {
 }
 
 .addClassForm {
-	background: #686963;
-	width: 50%;
+	width:45vw;
+	height: 40vh;
+	position:fixed;
+	top:20vh;
+	left:30vw;
+	z-index: 3;
+	background-color: white;
+	border:.5px #A2A4A3;
+	box-shadow: 0 100px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 5px;
+	overflow-y: auto;
 	text-align: center;
-	margin: auto;
-	color: white;
-	margin-bottom: 20px;
-	padding: 10px;
-
+	padding-top: 5%;
 }
 
-.inputForm {
-	display: grid;
-	grid-template-rows: 25%;
-	width: 25%;
-	grid-row-gap: 10px;
-	margin: auto;
-}
-
-.todoTitle {
-	display: inline-block;
-}
-.deleteIcon {
-	display: inline-block;
-	height: 5%;
-	width: 5%;
-	margin: 0;
-	cursor:pointer;
-}
-
-.deleteIcon:hover {
-	height: 6%;
-	width: 6%;
-}
-
-.deleteClass {
+.ExitAddClass{
 	position: absolute;
 	top: 20px;
 	right: 0px;
 	height: 6%;
 	width: 6%;
 	cursor: pointer;
+	padding-right: 10px;
 }
 
-.deleteClass:hover {
+.ExitAddClass:hover {
 	height: 7%;
 	width: 7%;
 }
 
+.inputForm {
+	display: grid;
+	grid-template-rows: 25%;
+	width: 40%;
+	grid-row-gap: 10px;
+	margin: auto;
+}
+.timeDate{
+	font-size: 100%;
+}
 
+.classNameEnter{
+	font-size: 120%;
+
+}
+.addClass{
+	font-size: 120%;
+}
+
+
+.todoTitle {
+	display: inline-block;
+	margin: 3px;
+}
+.deleteIcon {
+	margin: 0;
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	cursor:pointer;
+	padding-top: 10px;
+}
+
+.deleteIcon:hover {
+	
+
+}
+
+.deleteClass {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	height: 5.5%;
+	width: 5.5%;
+	padding-right: 5px;
+	cursor: pointer;
+}
+
+.deleteClass:hover {
+	height: 6.5%;
+	width: 6.5%;
+}
+
+.noClasses {
+	text-align: center;
+	color: white;
+	background-color: #9b9b9b;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+	border-radius: 4px;
+}

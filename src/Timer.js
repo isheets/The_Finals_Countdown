@@ -12,8 +12,8 @@ export default class Timer extends Component {
 
 		return (
 			<div className="timer">
-			<h3>Time Until Test:</h3>
-			<h4>{countdown}</h4>
+			<h3 className="timerTitle">Time Until Test</h3>
+			<h4 className="countdown">{countdown}</h4>
 			</div>
 			);
 

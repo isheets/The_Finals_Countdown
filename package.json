@@ -2,6 +2,8 @@
   "name": "finals-countdown",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://creative.colorado.edu/~issh3780/fwd/projects/project3/milestone3",
+
   "dependencies": {
     "firebase": "^5.6.0",
     "re-base": "^4.0.0",
